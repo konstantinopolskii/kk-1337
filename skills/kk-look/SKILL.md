@@ -126,7 +126,7 @@ The order is part of it: the soul in words before any form, then the two or thre
 - **Line up every screen** at thumbnail size: the pages, the states, both themes, the phone and the desktop, and whatever the product sends. One look, and no generic half.
 - **Try the element everywhere it appears:** every state, width and theme, and with reduced motion. It means something, it works and it is flawless, or it goes.
 - **Check the borrowed looks** on the render, not in the code.
-- **Hold it against the owner's taste index**, when they keep one: take the entries that solve the same problem, and ask whether this reaches their level, never whether it looks like them.
+- **Hold it against the taste index** (kk-taste, and the owner's own when they keep one): take the entries that solve the same problem, and ask whether this reaches their level, never whether it looks like them.
 
 `node scripts/snap.cjs <file or url>`, from kk-1337's folder, renders the screens as a person scrolls, the blurred and grey views, and an audit of every distinct colour, background, radius, shadow and border, and of the sizes and faces; `--dark` adds the dark theme and `--thorough` the other devices.
 

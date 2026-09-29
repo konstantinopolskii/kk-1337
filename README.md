@@ -12,6 +12,7 @@ Every decision answers one question: what must this person, at this moment, perc
 | **kk-typography** | Everything with words: what the text says, how it is set, where it sits |
 | **kk-look** | The look: the soul, contrasts, colour, type, pictures and icons |
 | **kk-motion** | Everything that moves, and how to measure it |
+| **kk-taste** | KK's taste: screens he believes are good and the few he rejected, with tags and his words, his cases, and what he catches in a review |
 
 ## Install
 
@@ -35,7 +36,7 @@ For updates, run `git -C ~/kk-1337 pull` and copy again.
 
 **Claude app (claude.ai and desktop)**
 
-Zip each folder in `skills/` on its own, with the folder at the root of the zip, and upload it in Customize → Skills → + → Create skill. It needs a Pro, Max, Team or Enterprise plan with code execution on.
+Zip each folder in `skills/` on its own, with the folder at the root of the zip, and upload it in Customize → Skills → + → Create skill. It needs a Pro, Max, Team or Enterprise plan with code execution on. Not tested yet: the app's help page limits a skill's description to 200 characters, and these run to about 1,000.
 
 ## How to use it
 
@@ -59,7 +60,7 @@ Things to ask:
 
 ## Make it yours
 
-Write what you like and how you work in `~/.kk-1337/me.md`: products and pages you think are good and why, what you never want to see, how you like to review. The skills read it first and follow it over their defaults, and after a round of your comments they offer to add what you taught them.
+The pack comes with KK's taste (kk-taste). Add your own: write what you like and how you work in `~/.kk-1337/me.md`: products and pages you think are good and why, what you never want to see, how you like to review. The skills read it first and follow it over their defaults, and after a round of your comments they offer to add what you taught them.
 
 ## Rendering checks
 
