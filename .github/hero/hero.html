@@ -1,0 +1,77 @@
+<!doctype html><meta charset="utf-8">
+<!-- The source of .github/hero.png and hero-dark.png (add #dark to the address for the dark one): 1280×640, rendered at 2×. Commissioner, SIL OFL 1.1 (OFL.txt). -->
+<style>
+@font-face { font-family: "Commissioner"; src: url("Commissioner-Latin.woff2") format("woff2"); font-weight: 200 800; }
+:root { --ground: #ffffff; --ink: #111111; --grey: #6b6b6b; --faint: #9a9a9a; --ring: #b8b8b8; --screen: #ffffff; --edge: rgba(0,0,0,.08); --lift: 0 18px 40px rgba(0,0,0,.10); --note: #ffffff; --noteshadow: 0 1px 2px rgba(0,0,0,.1), 0 10px 26px rgba(0,0,0,.14); --hl: rgb(255 214 10 / .78); --btn: #111111; --btntext: #ffffff; }
+:root.dark { --ground: #0d1117; --ink: #e6edf3; --grey: #8b949e; --faint: #6e7681; --ring: #4b525b; --screen: #161b22; --edge: rgba(255,255,255,.10); --lift: 0 18px 40px rgba(0,0,0,.45); --note: #1f252d; --noteshadow: 0 1px 2px rgba(0,0,0,.5), 0 12px 28px rgba(0,0,0,.55); --hl: rgb(255 214 10 / .88); --btn: #e6edf3; --btntext: #0d1117; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1280px; height: 640px; overflow: hidden; }
+body { background: var(--ground); color: var(--ink); font-family: "Commissioner", sans-serif; -webkit-font-smoothing: antialiased; position: relative; }
+.title { position: absolute; left: 80px; top: 44px; width: 330px; }
+.title b { display: block; font-size: 64px; line-height: 1; letter-spacing: -.035em; font-weight: 700; }
+.title p { margin-top: 20px; font-size: 28px; line-height: 1.22; letter-spacing: -.01em; }
+.title small { position: absolute; top: 414px; font-size: 20px; line-height: 1.35; color: var(--grey); width: 320px; }
+.phone { position: absolute; top: 56px; width: 214px; height: 480px; border-radius: 32px; background: var(--screen); }
+.phone.hifi { box-shadow: 0 0 0 1px var(--edge), var(--lift); }
+.phone.sketch { box-shadow: inset 0 0 0 3px var(--ink); background: var(--ground); }
+.scr { position: absolute; inset: 0; padding: 28px 20px 20px; display: flex; flex-direction: column; }
+.cap { position: absolute; top: 556px; font-size: 21px; font-weight: 700; letter-spacing: -.01em; }
+/* one geometry for both: text in the detail, bars in the sketch */
+.day { height: 16px; font-size: 12.5px; line-height: 16px; color: var(--grey); display: flex; align-items: center; }
+.date { margin-top: 3px; height: 30px; font-size: 26px; line-height: 30px; font-weight: 700; letter-spacing: -.03em; display: flex; align-items: center; white-space: nowrap; }
+.grp { margin-top: 22px; height: 16px; font-size: 12.5px; line-height: 16px; color: var(--grey); display: flex; align-items: center; }
+.row { display: flex; align-items: center; gap: 10px; height: 18px; margin-top: 14px; font-size: 13.5px; line-height: 18px; white-space: nowrap; }
+.row.first { margin-top: 20px; }
+.dot { flex: none; width: 17px; height: 17px; border-radius: 50%; border: 1.6px solid var(--ring); }
+.row.done { color: var(--faint); text-decoration: line-through; }
+.row.done .dot { background: var(--ink); border-color: var(--ink); }
+.btn { margin-top: auto; height: 44px; border-radius: 12px; background: var(--btn); color: var(--btntext); display: grid; place-items: center; font-size: 14.5px; font-weight: 600; }
+.bar { display: block; border-radius: 99px; background: var(--ink); }
+.sketch .dot { border: 3px solid var(--ink); }
+.sketch .row.done .dot { background: var(--ink); }
+.hl { background: var(--hl); border-radius: 2px; box-decoration-break: clone; }
+:root.dark .hl { color: #0d1117; }
+.note { position: absolute; left: 1092px; top: 92px; width: 156px; padding: 9px 11px; border-radius: 10px; background: var(--note); box-shadow: var(--noteshadow); font-size: 12.5px; line-height: 1.35; }
+.note i { display: block; font-style: normal; color: var(--grey); font-size: 11px; margin-bottom: 3px; }
+</style>
+<script>if (location.hash === '#dark') document.documentElement.classList.add('dark');</script>
+<div class="title"><b>kk-1337</b><p>Design the way KK does,<br>in Claude and Codex</p>
+<small>A sketch in minutes,<br>a high-fidelity shot in an hour,<br>a product in days.</small></div>
+
+<div class="phone sketch" style="left:430px"><div class="scr">
+  <div class="day"><span class="bar" style="width:52px;height:7px"></span></div>
+  <div class="date"><span class="bar" style="width:140px;height:19px"></span></div>
+  <div class="row done first"><span class="dot"></span><span class="bar" style="width:118px;height:8px"></span></div>
+  <div class="row"><span class="dot"></span><span class="bar" style="width:132px;height:8px"></span></div>
+  <div class="row"><span class="dot"></span><span class="bar" style="width:106px;height:8px"></span></div>
+  <div class="grp"><span class="bar" style="width:58px;height:7px"></span></div>
+  <div class="row"><span class="dot"></span><span class="bar" style="width:100px;height:8px"></span></div>
+  <div class="row"><span class="dot"></span><span class="bar" style="width:126px;height:8px"></span></div>
+  <div class="btn"></div>
+</div></div>
+<div class="cap" style="left:430px">Sketch</div>
+
+<div class="phone hifi" style="left:664px"><div class="scr">
+  <div class="day">Tuesday</div><div class="date">30 September</div>
+  <div class="row done first"><span class="dot"></span>Send the quote to Mark</div>
+  <div class="row"><span class="dot"></span>Call Anna about the flat</div>
+  <div class="row"><span class="dot"></span>Book flights to Lisbon</div>
+  <div class="grp">This week</div>
+  <div class="row"><span class="dot"></span>Draft the pitch deck</div>
+  <div class="row"><span class="dot"></span>Review the sign-up page</div>
+  <div class="btn">Plan the week</div>
+</div></div>
+<div class="cap" style="left:664px">Detail</div>
+
+<div class="phone hifi" style="left:898px"><div class="scr">
+  <div class="day">Tuesday</div><div class="date"><span class="hl">30 September</span></div>
+  <div class="row done first"><span class="dot"></span>Send the quote to Mark</div>
+  <div class="row"><span class="dot"></span>Call Anna about the flat</div>
+  <div class="row"><span class="dot"></span>Book flights to Lisbon</div>
+  <div class="grp">This week</div>
+  <div class="row"><span class="dot"></span>Draft the pitch deck</div>
+  <div class="row"><span class="dot"></span>Review the sign-up page</div>
+  <div class="btn">Plan the week</div>
+</div></div>
+<div class="note"><i>“30 September”</i>Say what's due today, not only the date.</div>
+<div class="cap" style="left:898px">Review</div>
