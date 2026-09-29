@@ -1,4 +1,7 @@
-# kk-1337
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/hero-dark.png">
+  <img alt="kk-1337: design the way KK does, in Claude and Codex. One phone screen three times: as a bold marker sketch, in full detail, and with a yellow mark and a reviewer's comment on the date." src=".github/hero.png">
+</picture>
 
 Skills that make Claude and Codex work the way [KK](https://kk.consulting) (Konstantin Konstantinopolskii) does on anything a person will see, read, decide or act on: a screen, a flow, a page, a message, a CV, a deck. They are distilled from about 340 of his comments on agents' design work.
 
