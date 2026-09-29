@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[What was reviewed]: review</title>
+<!--
+  The page template of kk-1337: a report, sketches or high-fidelity shots to show the owner.
+  Copy it next to the work, give <body data-page> a name of its own (comments are kept per name),
+  and replace every [bracket]. Nothing loads from the internet; it works from a file.
+
+  Comments: the owner selects any words and presses Comment; the note sits beside the words on a
+  wide screen and under them on a phone, and stays after a reload (in this browser). Copy puts all
+  of them on the clipboard as text to paste back to the agent. From a browser the agent can reach:
+  kkComments() returns them as data, kkCommentsText() as that text.
+
+  Marker sketches: .sketch is a screen; inside it .sk-row lays things in a line; .sk-head is a
+  heading, .sk-line a line of text, .sk-box an icon or a checkbox (.fill to fill it), .sk-dot a dot,
+  .sk-btn a button, .sk-img a picture, .sk-fill pushes the rest to the far end. Widths and heights
+  go in --w and --h, colours in --c (the product's own), the screen's size in --sw and --sh.
+-->
+<style>
+:root {
+  --ink: #111; --grey: #666; --ground: #fff; --figure: #f2f2f2; --lift: #fff;
+  --mark: rgb(255 214 10 / .4); --mark-on: rgb(255 214 10 / .8);
+  --shadow: 0 1px 2px rgb(0 0 0 / .08), 0 6px 20px rgb(0 0 0 / .1);
+  --ease: cubic-bezier(.23, 1, .32, 1);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f2f2f2; --grey: #a6a6a6; --ground: #121212; --figure: #1d1d1d; --lift: #242424;
+    --mark: rgb(255 214 10 / .3); --mark-on: rgb(255 214 10 / .55);
+    --shadow: 0 1px 2px rgb(0 0 0 / .5), 0 8px 24px rgb(0 0 0 / .55);
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font: 18px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 768px; margin: 0 auto; padding: 56px 24px 128px; }
+@media (min-width: 1200px) {
+  .page { max-width: none; display: grid; grid-template-columns: 720px 296px; column-gap: 56px; justify-content: center; }
+}
+
+.meta { margin: 0 0 16px; color: var(--grey); font-size: 15px; line-height: 1.4; }
+h1 { margin: 0 0 20px; font-size: 44px; line-height: 1.08; letter-spacing: -.022em; font-weight: 700; text-wrap: balance; }
+.lead { margin: 0; font-size: 21px; line-height: 1.5; }
+section { margin-top: 80px; }
+h2 { margin: 0 0 16px; font-size: 27px; line-height: 1.22; letter-spacing: -.012em; font-weight: 700; text-wrap: balance; }
+p, ul, ol { margin: 0 0 16px; }
+ul, ol { padding-left: 1.2em; }
+li { margin-bottom: 10px; }
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .page { padding: 32px 16px 112px; }
+  h1 { font-size: 32px; }
+  .lead { font-size: 19px; }
+  section { margin-top: 56px; }
+  h2 { font-size: 23px; }
+}
+
+/* figures: today and the move, side by side on a wide screen */
+figure { margin: 32px 0; }
+.pair { display: grid; gap: 16px; margin: 32px 0; }
+.pair figure { display: flex; flex-direction: column; margin: 0; }
+.pair .frame { flex: 1; }
+@media (min-width: 640px) { .pair { grid-template-columns: 1fr 1fr; } }
+.frame { display: flex; justify-content: center; align-items: flex-start; padding: 24px; border-radius: 10px; background: var(--figure); overflow: hidden; }
+.frame img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+figcaption { margin-top: 10px; color: var(--grey); font-size: 15px; line-height: 1.4; }
+.slot { width: 100%; min-height: 200px; display: grid; place-items: center; padding: 16px; color: var(--grey); font-size: 15px; text-align: center; }
+
+/* marker sketches */
+.sketch {
+  width: min(100%, var(--sw, 280px)); min-height: var(--sh, auto);
+  display: flex; flex-direction: column; gap: 12px; padding: 18px;
+  border: 3px solid var(--ink); border-radius: 16px; background: var(--ground);
+}
+.sk-row { display: flex; align-items: center; gap: 10px; }
+.sk-head, .sk-line, .sk-box, .sk-dot, .sk-btn, .sk-img { display: block; flex: none; }
+.sk-head { width: var(--w, 60%); height: 16px; border-radius: 8px; background: var(--c, var(--ink)); }
+.sk-line { width: var(--w, 100%); height: 8px; border-radius: 4px; background: var(--c, var(--ink)); }
+.sk-box { width: 20px; height: 20px; border: 3px solid var(--c, var(--ink)); border-radius: 6px; }
+.sk-box.fill { background: var(--c, var(--ink)); }
+.sk-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--ink)); }
+.sk-btn { width: var(--w, 112px); height: 36px; border-radius: 10px; background: var(--c, var(--ink)); }
+.sk-img { width: var(--w, 100%); height: var(--h, 120px); border-radius: 10px; background: var(--c, color-mix(in srgb, var(--ink) 16%, transparent)); }
+.sk-fill { flex: 1; }
+
+/* comments */
+mark.kkc { background: var(--mark); color: inherit; border-radius: 2px; cursor: pointer; transition: background-color .15s var(--ease); }
+mark.kkc.on { background: var(--mark-on); }
+.kkc-add {
+  position: absolute; z-index: 20; padding: 10px 14px; border: 0; border-radius: 10px;
+  background: var(--ink); color: var(--ground); box-shadow: var(--shadow);
+  font: 600 15px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; cursor: pointer;
+}
+.kkc-notes { display: none; }
+@media (min-width: 1200px) { .kkc-notes { display: block; position: relative; } }
+.kkc-note {
+  padding: 12px 14px; border-radius: 10px; background: var(--lift); box-shadow: var(--shadow);
+  font-size: 15px; line-height: 1.45; animation: kkc-in .2s var(--ease);
+}
+.kkc-notes .kkc-note { position: absolute; left: 0; right: 0; transition: top .25s var(--ease); }
+main .kkc-note { margin: 12px 0 20px; }
+.kkc-note.on { outline: 2px solid var(--mark-on); }
+.kkc-quote { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 6px; color: var(--grey); font-size: 13px; }
+.kkc-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.kkc-note textarea {
+  display: block; width: 100%; min-height: 64px; margin: 0; padding: 0; border: 0; outline: none; resize: none;
+  background: transparent; color: inherit; font: inherit;
+}
+.kkc-note textarea::placeholder { color: var(--grey); }
+.kkc-row { display: flex; justify-content: flex-end; align-items: center; gap: 16px; margin-top: 8px; }
+.kkc-note button { padding: 0; border: 0; background: none; color: var(--grey); font: inherit; font-size: 14px; cursor: pointer; }
+.kkc-note button.kkc-save { padding: 8px 14px; border-radius: 6px; background: var(--ink); color: var(--ground); font-weight: 600; }
+.kkc-row.kkc-actions { justify-content: flex-start; }
+.kkc-bar {
+  position: fixed; right: 16px; bottom: 16px; z-index: 30; display: flex; align-items: center; gap: 14px;
+  padding: 4px 4px 4px 16px; border-radius: 10px; background: var(--ink); color: var(--ground); box-shadow: var(--shadow);
+  font-size: 15px; line-height: 1;
+}
+.kkc-bar[hidden], .kkc-add[hidden] { display: none; }
+.kkc-bar button { padding: 10px 14px; border: 0; border-radius: 6px; background: var(--ground); color: var(--ink); font: 600 15px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; cursor: pointer; }
+.kkc-out { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 40; max-width: 560px; margin-left: auto; }
+@keyframes kkc-in { from { opacity: 0; transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) { .kkc-note, .kkc-notes .kkc-note { animation: none; transition: none; } }
+@media print { .kkc-add, .kkc-bar, .kkc-notes, main .kkc-note { display: none; } }
+</style>
+</head>
+<body data-page="[product]-review-[yyyy-mm-dd]">
+<div class="page">
+<main>
+
+<header>
+  <p class="meta">[Product or page], [date] · Select any words to comment</p>
+  <h1>[The verdict: whether it does its job, and the one move that matters most]</h1>
+  <p class="lead">[Who it is for, what they come to do, and where it stops them, in two or three sentences of facts.]</p>
+</header>
+
+<section>
+  <h2>[A finding, stated as what happens to people here]</h2>
+  <p>[What the eye and the hand do, and why: a measurement, a count, a render, their own words. An assumption says it is one.]</p>
+  <div class="pair">
+    <figure>
+      <div class="frame"><div class="slot">[Screenshot of today, as it renders]</div></div>
+      <figcaption>Now</figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><div class="slot">[Quick to show: the move in full detail, drawn in plain HTML and CSS in the product's own type, colours and spacing, with its real data]</div></div>
+      <figcaption>[What changes, in one line]</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <h2>[A finding whose fix is real work, shown as a bold marker sketch]</h2>
+  <p>[The same: what happens, why, and the fact behind it.]</p>
+  <div class="pair">
+    <figure>
+      <div class="frame">
+        <div class="sketch">
+          <div class="sk-row"><span class="sk-box"></span><span class="sk-head" style="--w: 50%"></span><span class="sk-fill"></span><span class="sk-dot"></span></div>
+          <span class="sk-line"></span>
+          <span class="sk-line" style="--w: 80%"></span>
+          <span class="sk-img" style="--h: 72px"></span>
+          <span class="sk-line" style="--w: 90%"></span>
+          <span class="sk-line" style="--w: 60%"></span>
+          <div class="sk-row"><span class="sk-btn" style="--w: 64px; --c: color-mix(in srgb, var(--ink) 25%, transparent)"></span><span class="sk-btn" style="--w: 64px; --c: color-mix(in srgb, var(--ink) 25%, transparent)"></span><span class="sk-btn" style="--w: 64px; --c: color-mix(in srgb, var(--ink) 25%, transparent)"></span></div>
+        </div>
+      </div>
+      <figcaption>Now</figcaption>
+    </figure>
+    <figure>
+      <div class="frame">
+        <div class="sketch">
+          <div class="sk-row"><span class="sk-box"></span><span class="sk-head" style="--w: 50%"></span></div>
+          <span class="sk-img" style="--h: 120px"></span>
+          <span class="sk-line" style="--w: 90%"></span>
+          <span class="sk-line" style="--w: 60%"></span>
+          <span class="sk-btn" style="--w: 100%; --c: #2f6bff"></span>
+        </div>
+      </div>
+      <figcaption>[The idea in one line]</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <h2>Your calls</h2>
+  <ol>
+    <li><strong>[A question only you can decide.]</strong> [Option A], or [option B]. My pick: [A], because [the reason].</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Not checked</h2>
+  <ul>
+    <li>[What could not be opened or measured, and why.]</li>
+  </ul>
+</section>
+
+</main>
+</div>
+
+<script>
+(() => {
+  const main = document.querySelector('main');
+  if (!main) return;
+  const KEY = 'kk-comments:' + (document.body.dataset.page || location.pathname);
+  const wide = matchMedia('(min-width: 1200px)');
+  const ui = (tag, cls, text) => {
+    const el = document.createElement(tag);
+    el.className = ('kkc-ui ' + (cls || '')).trim();
+    if (text != null) el.textContent = text;
+    if (tag === 'button') el.type = 'button';
+    return el;
+  };
+  const clean = s => String(s).replace(/\s+/g, ' ').trim();
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } };
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(comments, (k, v) => k[0] === '_' ? undefined : v)); } catch (e) {} };
+
+  let comments = load();
+  let draft = null;     // a new comment being written
+  let editing = null;   // the id of a comment being edited
+  let pending = null;   // the words selected right now
+  let pressing = false;
+  let undo = null;
+
+  const aside = ui('aside', 'kkc-notes');
+  aside.setAttribute('aria-label', 'Comments');
+  main.parentElement.appendChild(aside);
+  const add = ui('button', 'kkc-add', 'Comment');
+  add.hidden = true;
+  document.body.appendChild(add);
+  const bar = ui('div', 'kkc-bar');
+  const label = ui('span', 'kkc-label');
+  const action = ui('button', 'kkc-copy', 'Copy');
+  bar.append(label, action);
+  bar.hidden = true;
+  document.body.appendChild(bar);
+
+  // The page's text as one string, with the text nodes it is made of.
+  function textMap() {
+    const nodes = [];
+    let pos = 0;
+    const walk = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: n => n.parentElement.closest('.kkc-ui, script, style, svg, textarea')
+        ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+    });
+    for (let n; (n = walk.nextNode());) { nodes.push({ n, s: pos }); pos += n.data.length; }
+    return { nodes, text: nodes.map(x => x.n.data).join('') };
+  }
+  function offsetIn(map, node, off) {
+    if (node.nodeType === 3) {
+      const hit = map.nodes.find(x => x.n === node);
+      if (hit) return hit.s + off;
+    }
+    const at = document.createRange();
+    at.setStart(node, off);
+    for (const x of map.nodes) {
+      const r = document.createRange();
+      r.selectNodeContents(x.n);
+      if (at.compareBoundaryPoints(Range.START_TO_START, r) <= 0) return x.s;
+    }
+    return map.text.length;
+  }
+  function wrap(map, from, to, id) {
+    const marks = [];
+    for (let i = map.nodes.length - 1; i >= 0; i--) {
+      const { n, s } = map.nodes[i];
+      const a = Math.max(from, s), b = Math.min(to, s + n.data.length);
+      if (a >= b || !n.data.slice(a - s, b - s).trim()) continue;
+      let t = n;
+      if (b < s + n.data.length) t.splitText(b - s);
+      if (a > s) t = t.splitText(a - s);
+      const mark = document.createElement('mark');
+      mark.className = 'kkc';
+      mark.dataset.c = id;
+      t.parentNode.insertBefore(mark, t);
+      mark.appendChild(t);
+      marks.unshift(mark);
+    }
+    return marks;
+  }
+  function unwrapAll() {
+    main.querySelectorAll('mark.kkc').forEach(m => {
+      const p = m.parentNode;
+      while (m.firstChild) p.insertBefore(m.firstChild, m);
+      p.removeChild(m);
+      p.normalize();
+    });
+  }
+  const same = (a, b, fromEnd) => {
+    let i = 0;
+    const n = Math.min(a.length, b.length);
+    while (i < n && (fromEnd ? a[a.length - 1 - i] === b[b.length - 1 - i] : a[i] === b[i])) i++;
+    return i;
+  };
+  function locate(map, c) {
+    let best = -1, bestScore = -Infinity;
+    for (let i = map.text.indexOf(c.quote); i > -1 && c.quote; i = map.text.indexOf(c.quote, i + 1)) {
+      const score = same(map.text.slice(Math.max(0, i - 40), i), c.prefix || '', true)
+        + same(map.text.slice(i + c.quote.length, i + c.quote.length + 40), c.suffix || '', false)
+        - Math.abs(i - (c.start || 0)) / 1e6;
+      if (score > bestScore) { bestScore = score; best = i; }
+    }
+    return best;
+  }
+
+  const marksOf = id => [...main.querySelectorAll('mark.kkc')].filter(m => m.dataset.c === id);
+  function headingOf(mark) {
+    let found = null;
+    main.querySelectorAll('h1, h2, h3').forEach(h => {
+      if (h.compareDocumentPosition(mark) & Node.DOCUMENT_POSITION_FOLLOWING || h.contains(mark)) found = h;
+    });
+    return found ? clean(found.textContent) : '';
+  }
+
+  // Draw every mark and note again from the list.
+  function render() {
+    unwrapAll();
+    document.querySelectorAll('.kkc-note').forEach(n => n.remove());
+    const all = comments.slice();
+    if (draft) all.push(draft);
+    for (const c of all) {
+      const map = textMap();
+      const at = c === draft ? c.start : locate(map, c);
+      c._marks = at > -1 ? wrap(map, at, at + c.quote.length, c.id) : [];
+    }
+    const order = all.slice().sort((a, b) => {
+      if (!a._marks.length || !b._marks.length) return b._marks.length - a._marks.length;
+      return a._marks[0].compareDocumentPosition(b._marks[0]) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+    });
+    for (const c of order) c._note = note(c);
+    place(order);
+    status();
+  }
+
+  function note(c) {
+    const el = ui('div', 'kkc-note');
+    el.dataset.c = c.id;
+    el.appendChild(ui('div', 'kkc-quote', '“' + clean(c.quote) + '”'));
+    if (c === draft || c.id === editing) {
+      const box = ui('textarea');
+      box.value = c.text || '';
+      box.placeholder = 'Your comment';
+      box.setAttribute('aria-label', 'Comment');
+      box.rows = 3;
+      const row = ui('div', 'kkc-row');
+      const cancel = ui('button', '', 'Cancel');
+      const ok = ui('button', 'kkc-save', 'Save');
+      row.append(cancel, ok);
+      el.append(box, row);
+      const commit = () => {
+        const text = box.value.trim();
+        if (c === draft) {
+          if (text) { comments.push({ id: c.id, quote: c.quote, prefix: c.prefix, suffix: c.suffix, start: c.start, text, at: c.at }); save(); }
+          draft = null;
+        } else {
+          editing = null;
+          if (text) { c.text = text; save(); } else { remove(c); return; }
+        }
+        render();
+      };
+      const drop = () => { if (c === draft) draft = null; else editing = null; render(); };
+      ok.addEventListener('click', commit);
+      cancel.addEventListener('click', drop);
+      box.addEventListener('input', () => { if (c === draft) c.text = box.value; });
+      box.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); commit(); }
+        if (e.key === 'Escape') { e.preventDefault(); drop(); }
+      });
+      requestAnimationFrame(() => box.focus({ preventScroll: true }));
+    } else {
+      el.appendChild(ui('div', 'kkc-text', c.text));
+      const row = ui('div', 'kkc-row kkc-actions');
+      const edit = ui('button', '', 'Edit');
+      const del = ui('button', '', 'Delete');
+      edit.addEventListener('click', () => { editing = c.id; draft = null; render(); });
+      del.addEventListener('click', () => remove(c));
+      row.append(edit, del);
+      el.appendChild(row);
+    }
+    el.addEventListener('pointerenter', () => light(c.id, true));
+    el.addEventListener('pointerleave', () => light(c.id, false));
+    return el;
+  }
+
+  function remove(c) {
+    const i = comments.indexOf(c);
+    if (i < 0) return;
+    comments.splice(i, 1);
+    save();
+    undo = { c, i };
+    render();
+    clearTimeout(remove.t);
+    remove.t = setTimeout(() => { undo = null; status(); }, 6000);
+  }
+
+  // Beside the words on a wide screen, under them on a narrow one.
+  function place(order) {
+    if (wide.matches) {
+      const top0 = aside.getBoundingClientRect().top;
+      let floor = 0;
+      for (const c of order) {
+        aside.appendChild(c._note);
+        const want = c._marks.length ? c._marks[0].getBoundingClientRect().top - top0 - 12 : floor;
+        const top = Math.max(want, floor);
+        c._note.style.top = top + 'px';
+        floor = top + c._note.offsetHeight + 12;
+      }
+      aside.style.minHeight = floor + 'px';
+    } else {
+      for (const c of order) {
+        c._note.style.top = '';
+        if (!c._marks.length) { main.appendChild(c._note); continue; }
+        let block = c._marks[c._marks.length - 1].closest('li, dd, dt, td, th, p, h1, h2, h3, h4, blockquote, pre, figcaption, .slot') || c._marks[0].parentElement;
+        if (block.matches('figcaption, .slot')) block = block.closest('.pair') || block.closest('figure') || block;
+        if (block.matches('td, th')) block = block.closest('table') || block;
+        if (block.matches('li, dd, dt')) { block.appendChild(c._note); continue; }
+        let after = block;
+        while (after.nextElementSibling && after.nextElementSibling.classList.contains('kkc-note')) after = after.nextElementSibling;
+        after.after(c._note);
+      }
+    }
+  }
+  let queued = false;
+  const relayout = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      const order = [...document.querySelectorAll('.kkc-note')].map(n => {
+        const c = comments.find(x => x.id === n.dataset.c) || (draft && draft.id === n.dataset.c ? draft : null);
+        if (c) c._note = n;
+        return c;
+      }).filter(Boolean);
+      if (wide.matches && order.some(c => c._note.parentElement !== aside) || !wide.matches && order.some(c => c._note.parentElement === aside)) render();
+      else if (wide.matches) place(order);
+    });
+  };
+
+  function light(id, on) {
+    marksOf(id).forEach(m => m.classList.toggle('on', on));
+    document.querySelectorAll('.kkc-note').forEach(n => n.classList.toggle('on', on && n.dataset.c === id));
+  }
+  main.addEventListener('pointerover', e => { const m = e.target.closest('mark.kkc'); if (m) light(m.dataset.c, true); });
+  main.addEventListener('pointerout', e => { const m = e.target.closest('mark.kkc'); if (m) light(m.dataset.c, false); });
+  main.addEventListener('click', e => {
+    const m = e.target.closest('mark.kkc');
+    if (!m || !getSelection().isCollapsed) return;
+    const n = document.querySelector('.kkc-note[data-c="' + m.dataset.c + '"]');
+    if (n) { light(m.dataset.c, true); n.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+  });
+
+  function status() {
+    if (undo) {
+      label.textContent = 'Comment deleted';
+      action.textContent = 'Undo';
+      bar.hidden = false;
+      return;
+    }
+    const n = comments.length;
+    label.textContent = n + (n === 1 ? ' comment' : ' comments');
+    action.textContent = 'Copy';
+    bar.hidden = !n;
+  }
+  action.addEventListener('click', async () => {
+    if (undo) {
+      comments.splice(undo.i, 0, undo.c);
+      undo = null;
+      save();
+      render();
+      return;
+    }
+    const text = kkCommentsText();
+    let ok = false;
+    try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {
+      const box = ui('textarea');
+      box.value = text;
+      box.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(box);
+      box.select();
+      try { ok = document.execCommand('copy'); } catch (e2) {}
+      box.remove();
+    }
+    if (!ok) { showText(text); return; }
+    label.textContent = 'Copied. Paste them to the agent';
+    action.hidden = true;
+    setTimeout(() => { action.hidden = false; status(); }, 2600);
+  });
+
+  // When the browser refuses the clipboard, the text opens selected, to copy by hand.
+  function showText(text) {
+    const panel = ui('div', 'kkc-note kkc-out');
+    const box = ui('textarea');
+    box.value = text;
+    box.readOnly = true;
+    box.rows = 10;
+    const row = ui('div', 'kkc-row');
+    const close = ui('button', 'kkc-save', 'Done');
+    close.addEventListener('click', () => panel.remove());
+    row.appendChild(close);
+    panel.append(ui('div', 'kkc-quote', 'Copy this and paste it to the agent'), box, row);
+    document.body.appendChild(panel);
+    box.focus();
+    box.select();
+  }
+
+  // Selecting words shows the Comment button under them.
+  function selected() {
+    const sel = getSelection();
+    if (!sel.rangeCount || sel.isCollapsed) return null;
+    const r = sel.getRangeAt(0);
+    const box = r.commonAncestorContainer.nodeType === 1 ? r.commonAncestorContainer : r.commonAncestorContainer.parentElement;
+    if (!main.contains(box) || box.closest('.kkc-ui')) return null;
+    const map = textMap();
+    let a = offsetIn(map, r.startContainer, r.startOffset), b = offsetIn(map, r.endContainer, r.endOffset);
+    while (a < b && /\s/.test(map.text[a])) a++;
+    while (b > a && /\s/.test(map.text[b - 1])) b--;
+    if (b <= a) return null;
+    const rects = r.getClientRects();
+    return { a, b, map, rect: rects[rects.length - 1] || r.getBoundingClientRect() };
+  }
+  let wait;
+  document.addEventListener('selectionchange', () => {
+    clearTimeout(wait);
+    wait = setTimeout(() => {
+      if (pressing) return;
+      const s = selected();
+      if (!s || (draft && draft.text)) { add.hidden = true; pending = null; return; }
+      pending = s;
+      add.hidden = false;
+      const w = add.offsetWidth;
+      add.style.left = Math.max(8, Math.min(s.rect.right - w / 2, innerWidth - w - 8)) + scrollX + 'px';
+      add.style.top = s.rect.bottom + scrollY + 10 + 'px';
+    }, 120);
+  });
+  add.addEventListener('pointerdown', e => { e.preventDefault(); pressing = true; });
+  document.addEventListener('pointerup', () => setTimeout(() => { pressing = false; }, 0));
+  add.addEventListener('click', () => {
+    pressing = false;
+    if (!pending) return;
+    const { a, b, map } = pending;
+    draft = {
+      id: 'c' + Date.now().toString(36), quote: map.text.slice(a, b),
+      prefix: map.text.slice(Math.max(0, a - 40), a), suffix: map.text.slice(b, b + 40),
+      start: a, text: '', at: new Date().toISOString()
+    };
+    editing = null;
+    pending = null;
+    add.hidden = true;
+    getSelection().removeAllRanges();
+    render();
+  });
+
+  function kkComments() {
+    return comments.slice()
+      .map(c => ({ c, m: marksOf(c.id)[0] }))
+      .sort((x, y) => !x.m || !y.m ? (y.m ? 1 : 0) - (x.m ? 1 : 0)
+        : x.m.compareDocumentPosition(y.m) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1)
+      .map(({ c, m }) => ({ under: m ? headingOf(m) : '', words: clean(c.quote), comment: c.text, at: c.at, found: !!m }));
+  }
+  function kkCommentsText() {
+    const list = kkComments();
+    const title = clean((document.querySelector('h1') || {}).textContent || document.title);
+    let out = 'Comments on “' + title + '” (' + list.length + ')\n';
+    list.forEach((c, i) => {
+      out += '\n' + (i + 1) + '. ';
+      if (c.under && c.under !== c.words) out += 'Under “' + c.under + '”\n   ';
+      out += '“' + c.words + '”' + (c.found ? '' : ' (these words are no longer on the page)') + '\n   ' + c.comment.replace(/\n/g, '\n   ') + '\n';
+    });
+    return out;
+  }
+  window.kkComments = kkComments;
+  window.kkCommentsText = kkCommentsText;
+
+  wide.addEventListener('change', render);
+  new ResizeObserver(relayout).observe(main);
+  addEventListener('load', relayout);
+  if (document.fonts) document.fonts.ready.then(relayout);
+  render();
+})();
+</script>
+</body>
+</html>

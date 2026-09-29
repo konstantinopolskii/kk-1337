@@ -1,0 +1,17 @@
+{
+  "name": "kk-1337",
+  "owner": {
+    "name": "Konstantin Konstantinopolskii",
+    "url": "https://github.com/konstantinopolskii"
+  },
+  "metadata": {
+    "description": "KK's skills for solving and reviewing anything people see, read, decide or act on."
+  },
+  "plugins": [
+    {
+      "name": "kk-1337",
+      "source": "./",
+      "description": "KK's way of solving any task a person will see, read, decide or act on: one way of thinking, on how people see, think and act, and five craft skills for shaping, interface, text, look and motion."
+    }
+  ]
+}

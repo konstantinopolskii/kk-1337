@@ -1,0 +1,4 @@
+interface:
+  display_name: "KK 1337"
+  short_description: "KK's way of solving and judging anything people see, read, decide or do: one question, measured"
+  default_prompt: "Use $kk-1337 to solve or judge this: what must this person, at this moment, perceive and do, and what is the least that delivers it? Measure before and after with snap.cjs."
