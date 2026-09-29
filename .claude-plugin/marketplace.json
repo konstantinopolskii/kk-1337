@@ -5,13 +5,13 @@
     "url": "https://github.com/konstantinopolskii"
   },
   "metadata": {
-    "description": "KK's skills for solving and reviewing anything people see, read, decide or act on."
+    "description": "KK's skills for anything a person will see, read, decide or act on."
   },
   "plugins": [
     {
       "name": "kk-1337",
       "source": "./",
-      "description": "KK's way of solving any task a person will see, read, decide or act on: one way of thinking, on how people see, think and act, five craft skills for shaping, interface, text, look and motion, and KK's taste."
+      "description": "Makes Claude work the way KK does on anything a person will see, read, decide or act on: one way of thinking, five craft skills (shaping, interface, text, look, motion) and KK's taste."
     }
   ]
 }
