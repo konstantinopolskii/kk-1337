@@ -27,6 +27,8 @@ Every decision answers one question: what must this person, at this moment, perc
 
 ## Install
 
+The skills work best on Opus 5.5 or Sonnet 5.5 in Claude Code and on GPT-6-Astra in Codex, at medium to xhigh effort.
+
 **Claude Code**
 
 ```
