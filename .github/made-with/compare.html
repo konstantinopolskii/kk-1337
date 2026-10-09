@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8">
+<!-- The source of .github/compare.webp (desktop, 810 px wide, at 2x) and compare-phone.webp (#phone: 360 px, at 3x).
+     One run each, on 8 October 2026: the same prompt and data, Opus 5.5, without the skills and with kk-1337 (kk-1337, kk-typography, kk-look,
+     kk-interface and kk-taste loaded). The prompt: "Make me a page that shows my freelance week at a glance. The data is in week.json. Make it look great."
+     compare/ holds the data and both pages; compare-without.png and compare-with.png are their first screens at 1280x800.
+     The data first said 2026 with the weekdays of 2025; the year was changed to 2025 in the data and in both pages, nothing else. -->
+<style>
+* { box-sizing: border-box; margin: 0; }
+html, body { background: transparent; }
+body { position: relative; overflow: hidden; }
+.t { position: absolute; overflow: hidden; }
+.t img { position: absolute; max-width: none; }
+.t i { position: absolute; left: 0; right: 0; bottom: 0; height: 32px; }
+.t::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(128,128,128,.3); }
+</style>
+<script>const phone = location.hash === '#phone';</script>
+<body>
+<div id="d" style="display:none"><div class="t" style="left:0px;top:0px;width:400px;height:164.1px;border-radius:16px"><img src="compare-without.png" style="width:400.00px;left:0.00px;top:0.00px" alt=""></div><div class="t" style="left:410px;top:0px;width:400px;height:164.1px;border-radius:16px"><img src="compare-with.png" style="width:400.00px;left:0.00px;top:0.00px" alt=""></div></div>
+<div id="p" style="display:none"><div class="t" style="left:0px;top:0px;width:360px;height:147.7px;border-radius:16px"><img src="compare-without.png" style="width:360.00px;left:0.00px;top:0.00px" alt=""></div><div class="t" style="left:0px;top:157.65625px;width:360px;height:147.7px;border-radius:16px"><img src="compare-with.png" style="width:360.00px;left:0.00px;top:0.00px" alt=""></div></div>
+<script>
+document.body.style.width = (phone ? 360 : 810) + 'px'; document.body.style.height = (phone ? 305.3 : 164.1) + 'px';
+document.getElementById(phone ? 'p' : 'd').style.display = 'block';
+</script>

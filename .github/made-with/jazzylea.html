@@ -1,0 +1,21 @@
+<!doctype html><meta charset="utf-8">
+<!-- The source of .github/jazzylea.webp (desktop, 690 px wide, at 2x) and jazzylea-phone.webp (#phone: 360 px, at 3x).
+     Two screens of Jazzylea's guest app from the last round of its high-fidelity shots (7 October 2026), with a sample guest: her ticket as
+     she answers the questions, and her home. Each shows the top 1640 pixels; her home's source is cut there, above the row of guests' faces. On a phone, only the first, down to her first answer. -->
+<style>
+* { box-sizing: border-box; margin: 0; }
+html, body { background: transparent; }
+body { position: relative; overflow: hidden; }
+.t { position: absolute; overflow: hidden; }
+.t img { position: absolute; max-width: none; }
+.t i { position: absolute; left: 0; right: 0; bottom: 0; height: 32px; }
+.t::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(128,128,128,.3); }
+</style>
+<script>const phone = location.hash === '#phone';</script>
+<body>
+<div id="d" style="display:none"><div class="t" style="left:0px;top:0px;width:340px;height:714.9px;border-radius:44px"><img src="jazzylea-step-work.jpg" style="width:340.00px;left:0.00px;top:0.00px" alt=""></div><div class="t" style="left:350px;top:0px;width:340px;height:714.9px;border-radius:44px"><img src="jazzylea-home-verified.jpg" style="width:340.00px;left:0.00px;top:0.00px" alt=""></div></div>
+<div id="p" style="display:none"><div class="t" style="left:0px;top:0px;width:360px;height:544.6px;border-radius:44px"><img src="jazzylea-step-work.jpg" style="width:360.00px;left:0.00px;top:0.00px" alt=""><i style="background:linear-gradient(rgba(30,28,29,0),rgb(30,28,29))"></i></div></div>
+<script>
+document.body.style.width = (phone ? 360 : 690) + 'px'; document.body.style.height = (phone ? 544.6 : 714.9) + 'px';
+document.getElementById(phone ? 'p' : 'd').style.display = 'block';
+</script>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your week, 6–12 October</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --ink: #111111;
+    --soft: #6b6b6b;   /* secondary text */
+    --dim: #8a8a8a;    /* joining words in the big statement */
+    --late: #d32f1e;   /* money that is late, and nothing else */
+    --idle: #d6d6d6;   /* hours with no money attached */
+
+    --pad: clamp(20px, 6.25vw, 80px);
+    --cols: 14fr 9fr 5.5fr 3fr;   /* one column per project, as wide as its hours */
+    --gap: 16px;                  /* between projects */
+    --cell-gap: 3px;              /* between hours */
+    --strip-h: 40px;
+    --outline: 2px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121212;
+      --ink: #f2f2f2;
+      --soft: #a0a0a0;
+      --dim: #6f6f6f;
+      --late: #ff5a43;
+      --idle: #3d3d3d;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 16px/23px "Instrument Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-variant-numeric: tabular-nums;
+  }
+  p { text-wrap: pretty; }
+  b { font-weight: 600; }
+
+  .page {
+    width: min(1120px, 100% - 2 * var(--pad));
+    margin: 0 auto;
+    padding: 44px 0 64px;
+  }
+
+  /* The week and today */
+  .top { display: flex; justify-content: space-between; gap: 16px; }
+  .top .today { color: var(--soft); }
+
+  /* The statement */
+  .hero {
+    margin-top: 40px;
+    font-size: clamp(30px, 4.15vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.022em;
+    font-weight: 600;
+    color: var(--dim);
+    font-variant-numeric: proportional-nums;
+  }
+  .hero span { display: block; text-wrap: balance; }
+  .hero b { color: var(--ink); }
+  .before {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--soft);
+    text-wrap: balance;
+  }
+  .before b { color: var(--ink); font-weight: 400; }
+
+  /* The strip: one cell per hour, its fill is where the money stands */
+  .strip {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--cols);
+    column-gap: var(--gap);
+    margin-top: 76px;
+  }
+  .seg { display: flex; gap: var(--cell-gap); height: var(--strip-h); }
+  .seg i { flex: 1 1 0; min-width: 0; background: var(--fill); }
+  .seg i.half { flex-grow: 0.5; }
+  .paid { --fill: var(--ink); }
+  .late { --fill: var(--late); }
+  .open { --fill: transparent; }
+  .none { --fill: var(--idle); }
+  .open i { box-shadow: inset 0 0 0 var(--outline) var(--ink); }
+
+  .target {
+    position: absolute;
+    /* 30 h falls in the fourth project, after three gaps */
+    left: calc((100% - 3 * var(--gap)) * 30 / 31.5 + 3 * var(--gap) - 1px);
+    top: -28px;
+    bottom: 0;
+    border-left: 2px solid var(--ink);
+  }
+  .target span {
+    position: absolute;
+    top: -4px;
+    right: 8px;
+    white-space: nowrap;
+    color: var(--soft);
+  }
+
+  /* Projects, under their hours: who and what on top, the money lines up below */
+  .projects {
+    display: grid;
+    grid-template-columns: var(--cols);
+    grid-template-rows: auto auto;
+    column-gap: var(--gap);
+    margin-top: 18px;
+  }
+  .project { grid-row: span 2; display: grid; grid-template-rows: subgrid; align-content: start; }
+  .project h2 { font-size: 18px; line-height: 25px; font-weight: 600; }
+  .work { color: var(--soft); }
+  .money { margin-top: 12px; }
+  .figures { display: flex; gap: 14px; }
+  .state small { display: block; font-size: inherit; color: var(--soft); }
+  .late .state b { color: var(--late); }
+
+  /* Next week */
+  .next { margin-top: 60px; }
+  .next h2 { font-size: 18px; line-height: 25px; font-weight: 600; }
+  .next ul { list-style: none; margin-top: 8px; }
+  .next li { display: grid; grid-template-columns: 112px 1fr; padding: 2px 0; }
+  .next p span { color: var(--soft); margin-left: 6px; }
+
+  /* Phone, tablet and narrow windows: projects become rows, each marked with its strip colour
+     (columns as wide as their hours need about 1200px, or the shortest ones break into three lines) */
+  @media (max-width: 1199px) {
+    :root { --gap: 6px; --cell-gap: 2px; --strip-h: 30px; --outline: 1.5px; }
+    body { font-size: 15px; line-height: 22px; }
+    .page { padding-top: 24px; }
+    .hero { margin-top: 28px; font-size: clamp(28px, 8.1vw, 46px); }
+    .before { margin-top: 14px; font-size: 17px; line-height: 24px; }
+    .strip { margin-top: 56px; }
+    .target { top: -26px; }
+
+    .projects { display: block; margin-top: 10px; }
+    .project {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 16px;
+      padding: 18px 0 0 18px;
+    }
+    .project::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: 7px;
+      height: 16px;
+      background: var(--fill);
+    }
+    .project.open::before { box-shadow: inset 0 0 0 1.5px var(--ink); }
+    .id, .money { display: contents; }
+    .project h2 { grid-column: 1; grid-row: 1; font-size: 17px; line-height: 24px; }
+    .work { grid-column: 1; grid-row: 2; }
+    /* the figures stack at the right: the amount over the hours */
+    .figures { grid-column: 2; grid-row: 1 / span 2; flex-direction: column; align-items: flex-end; gap: 0; }
+    .figures .amount { order: -1; font-size: 17px; line-height: 24px; font-weight: 600; }
+    .figures .hours { color: var(--soft); }
+    .none .figures .hours { line-height: 24px; }
+    .state { grid-column: 1 / -1; grid-row: 3; margin-top: 4px; }
+
+    .next { margin-top: 44px; }
+    .next h2 { font-size: 17px; line-height: 24px; }
+    .next li { grid-template-columns: 92px 1fr; padding: 6px 0; }
+    .next p b { display: block; }
+    .next p span { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="top">
+    <p><b>6–12 October 2025</b></p>
+    <p class="today">Today is Sunday</p>
+  </header>
+
+  <h1 class="hero">
+    <span>You worked <b>31.5&nbsp;hours</b> and earned&nbsp;<b>€3,270.</b></span>
+    <span><b>€1,680</b> came&nbsp;in, <b>€1,590</b>&nbsp;is still <b>unpaid.</b></span>
+  </h1>
+  <p class="before">Last week you worked <b>27&nbsp;hours</b> and <b>€2,350</b> came&nbsp;in.</p>
+
+  <div class="strip" role="img" aria-label="31.5 hours against a target of 30: Northbank 14 hours, paid; Café Lumen 9 hours, invoice late; Small Hours podcast 5.5 hours, not invoiced; admin and portfolio 3 hours.">
+    <div class="seg paid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="seg late"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="seg open"><i></i><i></i><i></i><i></i><i></i><i class="half"></i></div>
+    <div class="seg none"><i></i><i></i><i></i></div>
+    <div class="target"><span>Target 30&#8239;h</span></div>
+  </div>
+
+  <section class="projects" aria-label="Projects this week">
+    <article class="project paid">
+      <div class="id"><h2>Northbank</h2><p class="work">Rebrand: logo and brand book</p></div>
+      <div class="money">
+        <p class="figures"><span class="hours">14&#8239;h</span><span class="amount">€1,680</span></p>
+        <p class="state">Paid 8 Oct</p>
+      </div>
+    </article>
+    <article class="project late">
+      <div class="id"><h2>Café Lumen</h2><p class="work">Menu and window lettering</p></div>
+      <div class="money">
+        <p class="figures"><span class="hours">9&#8239;h</span><span class="amount">€990</span></p>
+        <p class="state"><b>3 days late</b><small>Due 9 Oct, sent 2 Oct</small></p>
+      </div>
+    </article>
+    <article class="project open">
+      <div class="id"><h2>Small Hours podcast</h2><p class="work">Season cover art</p></div>
+      <div class="money">
+        <p class="figures"><span class="hours">5.5&#8239;h</span><span class="amount">€600</span></p>
+        <p class="state">Not invoiced yet</p>
+      </div>
+    </article>
+    <article class="project none">
+      <div class="id"><h2>Admin and portfolio</h2></div>
+      <div class="money">
+        <p class="figures"><span class="hours">3&#8239;h</span></p>
+      </div>
+    </article>
+  </section>
+
+  <section class="next">
+    <h2>Next week</h2>
+    <ul>
+      <li><time datetime="2025-10-14">Tue 14 Oct</time><p><b>Northbank</b> <span>Brand book, final files</span></p></li>
+      <li><time datetime="2025-10-17">Fri 17 Oct</time><p><b>Small Hours podcast</b> <span>Covers for episodes 1–8</span></p></li>
+    </ul>
+  </section>
+
+</main>
+</body>
+</html>

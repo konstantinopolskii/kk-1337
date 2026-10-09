@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Maya’s week · 6–12 October 2025</title>
+<meta name="description" content="Maya’s freelance week at a glance: hours, money and next week’s deadlines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400..600&display=swap">
+<style>
+  :root {
+    --paper: #F4F0E8;
+    --ink: #1A1916;
+    --ink-2: #5F5A50;
+    --ink-3: #857F73;
+    --rule: #DCD5C8;
+    --admin: #BDB5A6;
+    --yellow: #FFC61C;
+    --yellow-pale: #F7DF9C;
+    --on-yellow: #1A1916;
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --gap: clamp(20px, 2.2vw, 28px);
+    --cols: minmax(160px, .85fr) minmax(calc(257px + var(--gap)), 1fr) minmax(330px, 1.45fr) minmax(200px, .85fr);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #161513;
+      --ink: #EFEBE2;
+      --ink-2: #B1AA9D;
+      --ink-3: #7A746A;
+      --rule: #33302B;
+      --admin: #6C675E;
+      --yellow-pale: #6B581E;
+      --on-yellow: #161513;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 14px/1.45 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, p, ol { margin: 0; padding: 0; font: inherit; }
+  ol { list-style: none; }
+  .m-only { display: none; }
+
+  .page { max-width: 1280px; margin: 0 auto; padding: 40px clamp(24px, 3.75vw, 48px) 48px; }
+
+  /* Header */
+  .top {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 24px;
+    padding-bottom: 16px; border-bottom: 2px solid var(--ink);
+  }
+  .top h1 { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 14px; }
+  .top .title { font: 500 26px/1.1 var(--serif); letter-spacing: -.01em; }
+  .top .dates { font-size: 15px; color: var(--ink-2); }
+  .top .meta { display: flex; column-gap: 20px; flex-wrap: wrap; justify-content: flex-end; font-size: 13px; color: var(--ink-2); }
+
+  /* Summary row: each cell heads the column of projects below it */
+  .summary {
+    display: grid; grid-template-columns: var(--cols);
+    padding: 32px 0 34px; border-bottom: 1px solid var(--ink);
+  }
+  .cell { padding-right: var(--gap); min-width: 0; }
+  .cell:last-child { padding-right: 0; }
+  .label { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-2); }
+  .figure {
+    margin-top: 8px; white-space: nowrap;
+    font: 400 clamp(44px, 4.4vw, 56px)/1 var(--serif); letter-spacing: -.02em; font-variant-numeric: lining-nums;
+  }
+  .unit { margin-left: 6px; font: 500 16px/1 var(--sans); letter-spacing: 0; color: var(--ink-2); }
+  .cur { font-size: .55em; vertical-align: .55em; margin-right: .05em; letter-spacing: 0; }
+  .note { font-size: 13px; line-height: 20px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .notes { margin-top: 14px; }
+  .sw { display: inline-block; width: 9px; height: 9px; margin-right: 6px; vertical-align: 0; border-radius: 1px; }
+  .sw + .sw, .note .sw:not(:first-child) { margin-left: 12px; }
+  .sw-ink { background: var(--ink); }
+  .sw-admin { background: var(--admin); }
+  .sw-yellow { background: var(--yellow); }
+  .sw-pale { background: var(--yellow-pale); }
+
+  .verdict p { font: 400 28px/1.16 var(--serif); letter-spacing: -.01em; text-wrap: balance; }
+  .verdict p + p { margin-top: 6px; }
+  mark.hi {
+    background: var(--yellow); color: var(--on-yellow);
+    padding: 0 .1em; margin: 0 -.03em; border-radius: 3px;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  }
+
+  /* Hours: one block per hour */
+  .blocks {
+    display: inline-block; height: 12px; background: var(--ink);
+    -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 8px);
+            mask-image: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 8px);
+  }
+  .meter { position: relative; display: flex; height: 22px; margin-top: 30px; }
+  .meter .blocks { height: 22px; }
+  .meter .upto { width: 238px; background: linear-gradient(90deg, var(--ink) 227px, var(--admin) 227px); }
+  .meter .over { width: 11px; margin-left: 8px; background: var(--admin); }
+  .meter .target { position: absolute; left: 241px; top: -16px; bottom: -6px; border-left: 1.5px solid var(--ink); }
+  .meter .target span {
+    position: absolute; right: 6px; top: -3px; white-space: nowrap;
+    font-size: 11px; line-height: 14px; font-weight: 500; color: var(--ink);
+  }
+
+  /* Money: received vs still to collect */
+  .money { display: grid; grid-template-columns: minmax(0, 1680fr) minmax(0, 1590fr); align-content: start; }
+  .money .split { grid-column: 1 / -1; display: flex; gap: 2px; height: 22px; margin-top: 30px; }
+  .seg.paid { background: var(--ink); }
+  .seg.overdue { background: var(--yellow); }
+  .seg.unsent { background: var(--yellow-pale); }
+  .money .notes { padding-right: 10px; }
+
+  /* Next week */
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); max-width: 236px; margin-top: 14px; }
+  .cal li { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .cal span { font-size: 11px; line-height: 14px; font-weight: 500; color: var(--ink-3); }
+  .cal b { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 50%; font-size: 13px; font-weight: 500; }
+  .cal .we b { color: var(--ink-3); }
+  .cal .due b { background: var(--ink); color: var(--paper); font-weight: 600; }
+  .next .notes { margin-top: 10px; }
+
+  /* Projects */
+  .section-label { display: none; }
+  .row {
+    display: grid; grid-template-columns: var(--cols); align-items: baseline;
+    padding: 23px 0 24px; border-bottom: 1px solid var(--rule);
+  }
+  .row:last-child { border-bottom-color: var(--ink); }
+  .row > div { padding-right: var(--gap); min-width: 0; }
+  .row > div:last-child { padding-right: 0; }
+
+  .c-name h3 { font: 500 21px/1.25 var(--serif); letter-spacing: -.005em; }
+  .c-name p { margin-top: 2px; font-size: 13px; color: var(--ink-2); }
+
+  .c-hours { font: 400 21px/1.25 var(--serif); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+  .c-hours .blocks { margin-right: 12px; }
+  .u { margin-left: 3px; font: 500 13px var(--sans); color: var(--ink-2); }
+
+  .c-money { display: flex; align-items: baseline; gap: 14px; }
+  .amt { flex: none; min-width: 72px; font: 400 21px/1.25 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
+  .st { font-size: 13px; line-height: 20px; }
+  .st .sub { color: var(--ink-2); }
+  .paid { font-weight: 500; }
+  .tick { width: 12px; height: 12px; margin-right: 5px; vertical-align: -1px; }
+  .pill { display: inline-block; padding: 0 7px 1px; border-radius: 4px; font-weight: 600; }
+  .pill.overdue { background: var(--yellow); color: var(--on-yellow); }
+  .pill.unsent { background: var(--yellow-pale); }
+
+  .c-next .when { font-size: 14px; line-height: 20px; font-weight: 600; }
+  .c-next .rel { margin-left: 6px; font-weight: 400; color: var(--ink-2); }
+  .c-next .what { font-size: 13px; color: var(--ink-2); }
+  .dash { color: var(--ink-3); font-size: 14px; }
+
+  .row.admin .blocks { background: var(--admin); }
+  .row.admin .amt { color: var(--ink-3); }
+  .row.admin .st { color: var(--ink-2); }
+
+  /* Narrow screens: one column, read top to bottom */
+  @media (max-width: 1079px) {
+    .page { max-width: 680px; padding: 22px 16px 40px; }
+    .top { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .top .meta { justify-content: flex-start; flex-direction: column; }
+    .summary { display: block; padding: 0; border-bottom: 0; }
+    .cell { padding: 20px 0 22px; border-top: 1px solid var(--rule); }
+    .cell:first-child { border-top: 0; padding-top: 22px; }
+    .figure { font-size: 52px; }
+    .section-label {
+      display: block; padding: 12px 0 10px;
+      border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule);
+    }
+    .row {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+      grid-template-areas: "name name" "hours money" "next next";
+      column-gap: 16px; row-gap: 10px; padding: 16px 0 18px;
+    }
+    .row > div { padding-right: 0; }
+    .c-name { grid-area: name; }
+    .c-hours { grid-area: hours; }
+    .c-money { grid-area: money; gap: 10px; }
+    .c-next { grid-area: next; }
+    .c-next.none { display: none; }
+    .amt { min-width: 0; }
+    .amt.nil { display: none; }
+    .m-only { display: inline; }
+  }
+  @media (max-width: 599px) {
+    .row { grid-template-columns: minmax(0, 1fr); grid-template-areas: "name" "hours" "money" "next"; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <h1><span class="title">Maya’s week</span> <span class="dates">6–12 October 2025</span></h1>
+    <p class="meta"><span>Freelance brand designer, Lisbon</span> <span>Today is Sunday 12 October</span></p>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="The week in numbers">
+
+      <div class="cell verdict">
+        <p>Over your hours target.</p>
+        <p><mark class="hi">Two invoices need you.</mark></p>
+      </div>
+
+      <div class="cell hours">
+        <h2 class="label">Hours worked</h2>
+        <p class="figure">31.5<span class="unit">h</span></p>
+        <div class="meter" role="img" aria-label="31.5 hours against a 30-hour target: 28.5 hours for clients and 3 hours of admin">
+          <span class="blocks upto"></span>
+          <span class="target"><span>30&nbsp;h target</span></span>
+          <span class="blocks over"></span>
+        </div>
+        <div class="notes">
+          <p class="note"><i class="sw sw-ink"></i>28.5&nbsp;h for clients<i class="sw sw-admin"></i>3&nbsp;h admin</p>
+          <p class="note">Last week 27&nbsp;h</p>
+        </div>
+      </div>
+
+      <div class="cell money">
+        <div>
+          <h2 class="label">Received</h2>
+          <p class="figure"><span class="cur">€</span>1,680</p>
+        </div>
+        <div>
+          <h2 class="label">To collect</h2>
+          <p class="figure"><span class="cur">€</span>1,590</p>
+        </div>
+        <div class="split" role="img" aria-label="€1,680 received, €990 overdue, €600 with the invoice not sent">
+          <span class="seg paid" style="flex-grow:1680"></span>
+          <span class="seg overdue" style="flex-grow:990"></span>
+          <span class="seg unsent" style="flex-grow:600"></span>
+        </div>
+        <div class="notes">
+          <p class="note">Last week €2,350</p>
+        </div>
+        <div class="notes">
+          <p class="note"><i class="sw sw-yellow"></i>€990 overdue</p>
+          <p class="note"><i class="sw sw-pale"></i>€600 invoice not sent</p>
+        </div>
+      </div>
+
+      <div class="cell next">
+        <h2 class="label">Next week</h2>
+        <p class="figure">2<span class="unit">deadlines</span></p>
+        <ol class="cal" aria-label="13 to 19 October, deadlines on Tuesday 14 and Friday 17">
+          <li><span>M</span><b>13</b></li>
+          <li class="due"><span>T</span><b>14</b></li>
+          <li><span>W</span><b>15</b></li>
+          <li><span>T</span><b>16</b></li>
+          <li class="due"><span>F</span><b>17</b></li>
+          <li class="we"><span>S</span><b>18</b></li>
+          <li class="we"><span>S</span><b>19</b></li>
+        </ol>
+        <div class="notes">
+          <p class="note">13–19 October</p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="projects" aria-labelledby="projects-label">
+      <h2 class="label section-label" id="projects-label">Projects this week</h2>
+
+      <article class="row">
+        <div class="c-name">
+          <h3>Northbank</h3>
+          <p>Rebrand: logo and brand book</p>
+        </div>
+        <div class="c-hours">
+          <span class="blocks" style="width:110px" aria-hidden="true"></span>14<span class="u">h</span>
+        </div>
+        <div class="c-money">
+          <span class="amt">€1,680</span>
+          <div class="st">
+            <p class="paid"><svg class="tick" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.2 6.4l2.5 2.4 5.1-5.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Paid 8 Oct</p>
+          </div>
+        </div>
+        <div class="c-next">
+          <p class="when"><span class="m-only">Due </span>Tue 14 Oct<span class="rel">in 2 days</span></p>
+          <p class="what">Brand book, final files</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="c-name">
+          <h3>Café Lumen</h3>
+          <p>Menu and window lettering</p>
+        </div>
+        <div class="c-hours">
+          <span class="blocks" style="width:70px" aria-hidden="true"></span>9<span class="u">h</span>
+        </div>
+        <div class="c-money">
+          <span class="amt">€990</span>
+          <div class="st">
+            <p><span class="pill overdue">3 days overdue</span></p>
+            <p class="sub">Sent 2 Oct, due 9 Oct</p>
+          </div>
+        </div>
+        <div class="c-next none" aria-label="Nothing due next week">
+          <span class="dash" aria-hidden="true">—</span>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="c-name">
+          <h3>Small Hours podcast</h3>
+          <p>Season cover art</p>
+        </div>
+        <div class="c-hours">
+          <span class="blocks" style="width:43px" aria-hidden="true"></span>5.5<span class="u">h</span>
+        </div>
+        <div class="c-money">
+          <span class="amt">€600</span>
+          <div class="st">
+            <p><span class="pill unsent">Invoice not sent</span></p>
+          </div>
+        </div>
+        <div class="c-next">
+          <p class="when"><span class="m-only">Due </span>Fri 17 Oct<span class="rel">in 5 days</span></p>
+          <p class="what">Covers for episodes 1–8</p>
+        </div>
+      </article>
+
+      <article class="row admin">
+        <div class="c-name">
+          <h3>Admin and portfolio</h3>
+          <p>No client</p>
+        </div>
+        <div class="c-hours">
+          <span class="blocks" style="width:22px" aria-hidden="true"></span>3<span class="u">h</span>
+        </div>
+        <div class="c-money">
+          <span class="amt nil">—</span>
+          <div class="st"><p>No invoice</p></div>
+        </div>
+        <div class="c-next none" aria-label="Nothing due next week">
+          <span class="dash" aria-hidden="true">—</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+</div>
+</body>
+</html>

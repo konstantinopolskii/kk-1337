@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8">
+<!-- The source of .github/verticals.webp (desktop, 810 px wide, at 2x) and verticals-phone.webp (#phone: 360 px, at 3x).
+     The board is the final design spec of 7 October 2026 (1470x923 at 2x), with every
+     goal title swapped for the neutral sample goals in verticals-board-sample.json; none of it is KK's data. The desktop shows Day to Quarter,
+     the phone Week and Month (x 402..1285), each cut on blank lines of the board, so their goals read at the size they are shown. -->
+<style>
+* { box-sizing: border-box; margin: 0; }
+html, body { background: transparent; }
+body { position: relative; overflow: hidden; }
+.t { position: absolute; overflow: hidden; }
+.t img { position: absolute; max-width: none; }
+.t i { position: absolute; left: 0; right: 0; bottom: 0; height: 32px; }
+.t::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(128,128,128,.3); }
+</style>
+<script>const phone = location.hash === '#phone';</script>
+<body>
+<div id="d" style="display:none"><div class="t" style="left:0px;top:0px;width:810px;height:480.0px;border-radius:16px"><img src="verticals-board-sample.jpg" style="width:1418.34px;left:0.00px;top:0.00px" alt=""><i style="background:linear-gradient(rgba(255,255,255,0),rgb(255,255,255))"></i></div></div>
+<div id="p" style="display:none"><div class="t" style="left:0px;top:0px;width:360px;height:453.8px;border-radius:16px"><img src="verticals-board-sample.jpg" style="width:1198.64px;left:-163.90px;top:0.00px" alt=""><i style="background:linear-gradient(rgba(255,255,255,0),rgb(255,255,255))"></i></div></div>
+<script>
+document.body.style.width = (phone ? 360 : 810) + 'px'; document.body.style.height = (phone ? 453.8 : 480.0) + 'px';
+document.getElementById(phone ? 'p' : 'd').style.display = 'block';
+</script>

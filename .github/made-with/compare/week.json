@@ -1,0 +1,18 @@
+{
+  "person": "Maya, a freelance brand designer in Lisbon",
+  "week": "6–12 October 2025",
+  "currency": "EUR",
+  "hours_target": 30,
+  "projects": [
+    {"client": "Northbank", "work": "Rebrand: logo and brand book", "hours": 14, "amount": 1680, "invoice": {"status": "paid", "paid_on": "8 Oct"}},
+    {"client": "Café Lumen", "work": "Menu and window lettering", "hours": 9, "amount": 990, "invoice": {"status": "sent", "sent_on": "2 Oct", "due_on": "9 Oct"}},
+    {"client": "Small Hours podcast", "work": "Season cover art", "hours": 5.5, "amount": 600, "invoice": {"status": "not sent"}},
+    {"client": null, "work": "Admin and portfolio", "hours": 3, "amount": 0, "invoice": null}
+  ],
+  "today": "Sunday 12 October 2025",
+  "last_week": {"hours": 27, "paid_in": 2350},
+  "deadlines_next_week": [
+    {"client": "Northbank", "what": "Brand book, final files", "due": "Tue 14 Oct"},
+    {"client": "Small Hours podcast", "what": "Covers for episodes 1–8", "due": "Fri 17 Oct"}
+  ]
+}

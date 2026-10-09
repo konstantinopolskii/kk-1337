@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8">
+<!-- The source of .github/checks.webp (desktop, 810 px wide, rendered at 2x) and checks-phone.webp (open with #phone: 360 px, at 3x).
+     KK's Clean Movement Controls case (skills/kk-taste/cases/05-case-clean-movement-controls.md): the scene panel of an agent's mockup v2
+     and the approved panel, both 407 px wide in the editor, here at about 1:1, so their own text reads on a phone. No words are drawn in:
+     the README says what they are. -->
+<style>
+* { box-sizing: border-box; margin: 0; }
+html, body { background: transparent; }
+body { position: relative; overflow: hidden; }
+.t { position: absolute; overflow: hidden; }
+.t img { position: absolute; max-width: none; }
+.t i { position: absolute; left: 0; right: 0; bottom: 0; height: 32px; }
+.t::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(128,128,128,.3); }
+</style>
+<script>const phone = location.hash === '#phone';</script>
+<body>
+<div id="d" style="display:none"><div class="t" style="left:0px;top:0px;width:400px;height:286.0px;border-radius:16px"><img src="../../skills/kk-taste/shots/clean/rounds/3-mockup-v2.png" style="width:1257.99px;left:-94.35px;top:-269.29px" alt=""><i style="background:linear-gradient(rgba(24,24,24,0),rgb(24,24,24))"></i></div><div class="t" style="left:410px;top:0px;width:400px;height:286.0px;border-radius:16px"><img src="../../skills/kk-taste/shots/clean/example.png" style="width:1043.05px;left:-422.63px;top:-74.29px" alt=""><i style="background:linear-gradient(rgba(17,17,18,0),rgb(17,17,18))"></i></div></div>
+<div id="p" style="display:none"><div class="t" style="left:0px;top:0px;width:360px;height:257.4px;border-radius:16px"><img src="../../skills/kk-taste/shots/clean/rounds/3-mockup-v2.png" style="width:1132.19px;left:-84.91px;top:-242.36px" alt=""><i style="background:linear-gradient(rgba(24,24,24,0),rgb(24,24,24))"></i></div><div class="t" style="left:0px;top:267.3955773955774px;width:360px;height:257.4px;border-radius:16px"><img src="../../skills/kk-taste/shots/clean/example.png" style="width:938.75px;left:-380.37px;top:-66.86px" alt=""><i style="background:linear-gradient(rgba(17,17,18,0),rgb(17,17,18))"></i></div></div>
+<script>
+document.body.style.width = (phone ? 360 : 810) + 'px'; document.body.style.height = (phone ? 524.8 : 286.0) + 'px';
+document.getElementById(phone ? 'p' : 'd').style.display = 'block';
+</script>
