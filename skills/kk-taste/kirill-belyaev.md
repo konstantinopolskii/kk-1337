@@ -1,14 +1,12 @@
 # Kirill Belyaev
 
-Kirill Belyaev (kirillbelyaev.com) is a design director from Latvia and Spain. He was a junior designer at Bureau Gorbunov (2013–2014), ran the studio Kipo with Polina (2011–2015), was a senior designer at Data Laboratory (2015–2017) and art director at Tunnel Tech (2018–2020), worked with startups (2020–2023), and runs the branding studio A Place to Be with Boris (2023–). KK added his portfolio on 8 October 2026 as a source of inspiration for information graphics and data-dense interfaces, and for more than them.
+The portfolio of Kirill Belyaev (kirillbelyaev.com), a design director. KK: "I have new inspiration examples for information graphics and data dense interfaces. And not only them."
 
-KK: "I have new inspiration examples for information graphics and data dense interfaces. And not only them."
-
-Every picture from the site is in `shots/kirill-belyaev/`, in the site's own folders; the bond app's screen recording is kept as six frames, and the YouTube video in the articles section is not here. A Haiku agent described each picture, and the tags were then checked against the pictures. The names in the Tunnel Tech admin screens are test data (Lev Tolstoy, Vladimir Mayakovsky, Aleksandr Pushkin). The work is Kirill's: take the thinking, never the surface.
+Every picture from the site is in `shots/kirill-belyaev/`, in the site's own folders; the bond app's screen recording is kept as six frames. The names in the Tunnel Tech admin screens are test data. Take the thinking, never the surface.
 
 ## Data Laboratory, 2015–2017
 
-A Russian data-visualisation studio. Kirill's focus there, in his words, was "avoiding any kind of information ambiguity".
+A Russian data-visualisation studio.
 
 - **Bonds**, a financial analysis web app. Shots: `dl/bonds-frame-02.webp`, `06`, `08`, `09`, `10`, `16`. Every bond is a dot on one plane, yield against duration; sets of bonds (Russia USD, banks rated BBB and BB, oil and gas) become curves laid over each other; a set opens as a table or a time series, and a bond opens as a card beside the chart, then as a page with its bid and ask by exchange.
   - Tags: problem/make-results-comparable · problem/many-items-state-at-a-glance · problem/dense-data-kept-calm · kind/data-app · platform/web · idea/the-whole-market-on-one-plane · pattern/open-in-place · mood/an-analyst's-instrument.
@@ -33,7 +31,7 @@ A Russian data-visualisation studio. Kirill's focus there, in his words, was "av
 
 ## Tunnel Tech, 2018–2020: the admin, FlyStation
 
-Tunnel Tech builds wind tunnels for indoor skydiving. Kirill started as the product designer of its booking system and became art director.
+Tunnel Tech builds wind tunnels for indoor skydiving.
 
 - **Dashboard.** Shot: `tt/tt_dashboard.webp` (a tall page). It reads down from now: "Now, 12:04" with the four current timeblocks (check-in, gearing, flying, check-out) and who is in each, the speed and air temperature; then today, with past and future flights; then a heat map of reservations, hours against days; then the week's charts against the last.
   - Tags: problem/monitor-live-operations · problem/plan-over-time · problem/many-items-state-at-a-glance · kind/dashboard · platform/web · idea/the-day-reads-down-from-now · pattern/now-line · pattern/heatmap-matrix · mood/an-expert-instrument.
@@ -73,7 +71,7 @@ Tunnel Tech builds wind tunnels for indoor skydiving. Kirill started as the prod
 
 ## Bureau Gorbunov, 2013–2014: a contract app
 
-Kirill's main project there, the interface of a legal web app (dogovor.1jur.ru).
+The interface of a legal web app (dogovor.1jur.ru).
 
 - Shots: `bureau/dogovor_1.webp`, `2`, `3`. The list of contracts on the left; the text on the right, its key facts coloured by kind (sums in green, deadlines in pink); under the text, those facts gathered by kind (money, deadlines, parties), each linked to its clause. The second shot puts a contract's details next to a party's saved requisites. The third edits a template in its own reading layout, its fields tinted blue, with a table of parameters and their defaults.
   - Tags: problem/read-and-review-a-document · problem/key-facts-buried-in-long-text · problem/edit-a-document · kind/editor · platform/web · idea/key-facts-pulled-out-of-the-text · idea/the-document-is-the-interface · look/colour-marks-the-kind-of-fact · pattern/tinted-editable-fields · mood/an-expert-instrument.
@@ -105,7 +103,7 @@ Kirill's main project there, the interface of a legal web app (dogovor.1jur.ru).
 - Shot: `aptb.webp`. A collage of the studio's work: phone interfaces, a defect-detection dashboard, campaigns, identities, icons.
   - Tags: problem/make-claims-believable · kind/portfolio.
 
-## His thesis, before 2009
+## A thesis, before 2009
 
 - **City dogs**, a campaign for keeping dogs well in a city. Shot: `citydogs.webp`. Spreads where the rules are drawn as distances on a map (30 m, 50 m, 100 m, 500 m), with icons and packaging, in orange and purple.
   - Tags: problem/explain-how-something-works · kind/campaign · platform/print · idea/rules-drawn-as-distances.
