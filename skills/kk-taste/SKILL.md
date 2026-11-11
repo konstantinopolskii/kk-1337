@@ -63,6 +63,9 @@ A reference is one example from someone else's problem: weak evidence alone, and
 - **Kirill Belyaev's portfolio** (kirillbelyaev.com): data apps, admin and hall screens, sites and identities. 77 shots in `shots/kirill-belyaev/`, each tagged in `kirill-belyaev.md`.
   - KK: "I have new inspiration examples for information graphics and data dense interfaces. And not only them."
 
+- **KK's letter on the Jazzylea big screen**, 11 Nov 2026: a product's name closing a long sentence, read at the slide's display size. The name alone on its row at full size, then the rest of the phrase on the next row, as large as one row holds, with no dash between them: the row break is the pause. Rejected first: the whole phrase shrunk onto one row («мне не нравитса»). On the result, KK: "this is nice". The shots show guests' faces and stay in the private part.
+  - Tags: problem/key-phrase-too-long-for-a-row · kind/slide · platform/projector · idea/break-at-the-meaning-not-the-size · idea/the-row-break-is-the-pause · look/one-word-full-size-over-a-full-width-row · mood/an-announcement.
+
 ## Rejected
 
 - **Liquid Glass as a style** (Apple, 2025). No shot: developer.apple.com/videos/play/wwdc2025/356.
