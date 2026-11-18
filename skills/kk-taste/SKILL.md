@@ -77,6 +77,10 @@ A reference is one example from someone else's problem: weak evidence alone, and
 - **KK's letter on the Jazzylea big screen**, 11 Nov 2026: a product's name closing a long sentence, read at the slide's display size. The name alone on its row at full size, then the rest of the phrase on the next row, as large as one row holds, with no dash between them: the row break is the pause. Rejected first: the whole phrase shrunk onto one row («мне не нравитса»). On the result, KK: "this is nice". The shots show guests' faces and stay in the private part.
   - Tags: problem/key-phrase-too-long-for-a-row · kind/slide · platform/projector · idea/break-at-the-meaning-not-the-size · idea/the-row-break-is-the-pause · look/one-word-full-size-over-a-full-width-row · mood/an-announcement.
 
+- **Data cards on a phone**, four social-media cards on Pinterest (pin 664210645060441947, "How people use social media?": 3 out of 20, 55%, 35%, 10%, 81%; the maker isn't named). Shot: `shots/refs/23.jpg`.
+  - Tags: problem/make-a-number-the-message · problem/compare-packages · kind/card · platform/phone · idea/one-big-number-per-card · idea/the-chart-is-the-card · pattern/cards-that-slide · look/one-loud-colour-among-white-and-black · mood/plain-and-confident.
+  - KK, 18 Nov 2026, for DKCP's packages: "I see it like 3 cards (see packages on jazzylea.com/partnerships) that u can slide and see what's included. cards design similar by vibe to this … Save this design in ur skill".
+
 ## Rejected
 
 - **Jazzylea's Ladies Who Tech pack**, a partner's page of letter, steps and materials (jazzylea.com/lwt/offer). Shot: `shots/jazzylea/lwt-pack-1440.jpg`.
