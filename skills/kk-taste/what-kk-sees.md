@@ -9,7 +9,7 @@ tags: [self-check, comments, taste, process]
 
 # What KK sees
 
-**Gist.** Ten things KK catches again and again when he looks at a design, distilled from about 340 of his comments across 13 projects (Jun–Sep 2026). Check each before he sees anything. Most often he catches the words, the layout to the pixel, noise without a job, one system, and the soul of the look; the costliest misses are a part designed without the whole task and a screen drawn instead of the whole job.
+**Gist.** Eleven things KK catches again and again when he looks at a design, distilled from about 340 of his comments across 13 projects (Jun–Sep 2026). Check each before he sees anything. Most often he catches the words, the layout to the pixel, noise without a job, one system, and the soul of the look; the costliest misses are a part designed without the whole task and a screen drawn instead of the whole job.
 
 His comments stay with him, verbatim; here the counts say how many of the 295 comments from the session logs carry each theme, and one comment can carry two or three. His words are verbatim; Russian has an English gloss in brackets. Projects that are not his own are named by their kind.
 
@@ -109,6 +109,14 @@ It was compared with the original or the reference by a method (an overlay diff,
 - "И даже на телефоне сам ты не протестировал хотя бы в браузере свои свайпы, никаких E2E тестов." [You didn't even test your own swipes on a phone, or at least in a browser. No E2E tests.] (a food app, 1 Aug)
 - "посмотри ты свежим взглядом на свою работу дизайнерским. Где твой стив джобс. Где noise ink ratio от тафти." [Look at your own work with a designer's fresh eyes. Where's your Steve Jobs? Where's Tufte's noise-ink ratio?] (a tenders report, 25 Sep)
 - "if you will blur the page you will see that it's not helping eye to scan." (a tenders report, 26 Sep)
+
+### 11. In its place
+
+When the work changes what he sees in a product (a board, an app screen, a document), he sees the after as that product draws it, beside the before; the list of changes comes second, as the record. A list of "was → becomes" leaves him to imagine the result. Claude's recommendation after his 18 Nov comments; his yes the same day: «Yes, add it». (2.)
+
+- "I want to see your proposal right in my design system bro, not in shitty md file" (design-system, 17 Jul)
+- "Please show exactly how it will look like in verticals" (Horizons, a plan for his board sent as a list, 18 Nov)
+- "Now the question why with the skill initially u didn't do like that from the start if I ask to present information in the way it will be consumed by a user" (Horizons, 18 Nov)
 
 ## How we work, in his words
 

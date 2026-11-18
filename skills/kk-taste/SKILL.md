@@ -63,10 +63,25 @@ A reference is one example from someone else's problem: weak evidence alone, and
 - **Kirill Belyaev's portfolio** (kirillbelyaev.com): data apps, admin and hall screens, sites and identities. 77 shots in `shots/kirill-belyaev/`, each tagged in `kirill-belyaev.md`.
   - KK: "I have new inspiration examples for information graphics and data dense interfaces. And not only them."
 
+- **A dream journal's feeling picker**, a phone screen on Pinterest (pin 1086774953869757574, pinned by Alexnijon; the app isn't named). Shot: `shots/refs/22.jpg` (at rest, Gladness, Sadness, Calm).
+  - Tags: problem/pick-a-value-on-a-continuum · problem/make-a-gesture-feel-alive · kind/picker · platform/ios · idea/position-is-the-value · idea/the-field-answers-the-finger · pattern/dot-field-swells-under-the-finger · look/the-whole-card-tints-with-the-choice · mood/gentle-and-alive.
+  - KK, 15 Oct 2026, on the phone pads for Oli's piece: "I think this thing as the UI beats 99% of other phone uis u have here".
+
+- **jazzylea.com**, the homepage of KK's evening for women who lead. Shots: `shots/jazzylea/home-1440.jpg`, `home-390.jpg`. Its golden list, with the parts he praised one by one, is the jazzylea-golden skill.
+  - Tags: problem/explain-an-offer-fast · problem/make-claims-believable · kind/site · platform/web · idea/one-statement-per-idea · idea/a-playful-element-carries-the-soul · look/coral-statements-on-black · look/bold-white-in-dark-cards · pattern/logos-set-by-eye · mood/an-evening-invitation.
+  - KK, 2 Oct 2026: "Look how simple we explain each thing. Look that we don't have any purple shit there." 31 Oct, on a partner page: "Compare with main page of jazzylea and our design language in app."
+- **The Paybis page's logo cards**, the same house on a sponsor page (jazzylea.com/sponsorships/paybis, round 17): "C-level in Maria’s circle" and "Firms in our room". Shots: `shots/jazzylea/paybis-logos-circle.png`, `paybis-logos-room.png`. How it is done: the jazzylea-pages skill, `logos.md`.
+  - Tags: problem/make-claims-believable · problem/many-brands-in-one-block · kind/logo-wall · platform/web · idea/the-title-is-the-rule · idea/one-weight-for-every-logo · pattern/logos-set-by-eye · look/white-marks-on-dark-cards · mood/quiet-proof.
+  - KK, 3 Nov 2026: "Speaking about the company and logo alignment — very good! How can we remember ur skill and the way u done it? Very very good."
+
 - **KK's letter on the Jazzylea big screen**, 11 Nov 2026: a product's name closing a long sentence, read at the slide's display size. The name alone on its row at full size, then the rest of the phrase on the next row, as large as one row holds, with no dash between them: the row break is the pause. Rejected first: the whole phrase shrunk onto one row («мне не нравитса»). On the result, KK: "this is nice". The shots show guests' faces and stay in the private part.
   - Tags: problem/key-phrase-too-long-for-a-row · kind/slide · platform/projector · idea/break-at-the-meaning-not-the-size · idea/the-row-break-is-the-pause · look/one-word-full-size-over-a-full-width-row · mood/an-announcement.
 
 ## Rejected
+
+- **Jazzylea's Ladies Who Tech pack**, a partner's page of letter, steps and materials (jazzylea.com/lwt/offer). Shot: `shots/jazzylea/lwt-pack-1440.jpg`.
+  - Tags: look/logo-gradient-as-a-ground · look/tiny-grey-type · pattern/chips-as-labels · problem/live-is-not-golden.
+  - KK, 31 Oct 2026: "THE LADIES WHO TECH PACK ISN'T GOLDEN AT ALL BTW / IT'S WEAK AND DIRTY / LAYOUT IS KINDA OKAY".
 
 - **Liquid Glass as a style** (Apple, 2025). No shot: developer.apple.com/videos/play/wwdc2025/356.
   - Tags: look/fashionable-material.
